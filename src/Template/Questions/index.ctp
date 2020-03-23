@@ -7,4 +7,5 @@
     </div>
  </div>
 <?php else: ?>
+  <p><?= $this->Paginator->counter([ 'format' => '全{{pages}}ページ中{{page}}目を表示しています']) ?></p>
 <?php endif; ?>
