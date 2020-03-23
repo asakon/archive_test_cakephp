@@ -8,4 +8,20 @@
  </div>
 <?php else: ?>
   <p><?= $this->Paginator->counter([ 'format' => '全{{pages}}ページ中{{page}}目を表示しています']) ?></p>
+  <?php foreach ($questions as $question) :?>
+    <div class="card mb-2">
+      <div class="card-body">
+        <h5 class="card-title"><i class="fas fa-user-cilrcle"></i><?= 'たろう'  // @TODO ユーザー管理機能実装時に修正する ?></h5>
+        <p class="card-text"><?= nl2br(h($question->body)) ?></p>
+        <p class="card-subtitle mb-2 text-muted">
+          <small><?= h($question->created) ?></small>
+        </p>
+        <?= $this->Html->link('詳細へ', ['action' => 'view', $question->id], ['class' => 'card-link']) ?>
+        <?= $this->Form->postLink('削除する', 
+          ['action' => 'delete', $question->id],
+          ['confirm' => '質問を削除します。よろしいですか？'],
+          ['class' => 'card-link']) ?>
+      </div>
+    </div>
+  <?php endforeach; ?>
 <?php endif; ?>
