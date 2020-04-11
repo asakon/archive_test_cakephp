@@ -18,7 +18,7 @@ use Cake\View\View;
 /**
  * Application View
  *
- * Your application's default view class
+ * Your application’s default view class
  *
  * @link https://book.cakephp.org/3.0/en/views.html#the-app-view
  */
@@ -36,5 +36,7 @@ class AppView extends View
      */
     public function initialize()
     {
+        $this->loadHelper('Paginator', ['templates' => 'paginator-templates']);
+        $this->loadHelper('Form', ['templates' => 'form-templates']);
     }
 }
