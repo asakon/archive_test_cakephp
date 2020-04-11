@@ -6,6 +6,10 @@
         <i class="fas fa-user-circle"></i> <?= 'たろう' // @TODO ユーザー管理機能実装時に修正する ?>
       </h5> 
       <p class="card-text"><?= nl2br(h($question->body)) ?></p>
-    </div> 
+      <p class="card-subtitle mb-2 text-muted">
+        <small><?= h($question->created) ?></small>
+        <small><i class="fas fa-comment-dots"></i> <?= $this->Number->format($answers->count()) ?></small> 
+      </p>
+    </div>
   </div>
 </section>
