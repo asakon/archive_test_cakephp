@@ -23,7 +23,21 @@
     </div>
   <?php else: ?>
     <div class="w-75 ml-auto">
-      <h5><i class="fas fa-reply"></i> 回答</h5> 
+      <h5><i class="fas fa-reply"></i> 回答</h5>
     </div>
+    <?php foreach ( $answers as $answer ):?>
+      <div class="card w-75 mb-2 ml-auto">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="fas-fa-user-circle"></i> <?= 'じろう' //@TODO ユーザー管理機能実装時に修正する ?>
+          </h5> 
+          <p class="card-text"><?= nl2br(h($answer->body)) ?></p>
+          <p class="card-subtitle mb-2 text-muted">
+            <small><?= h($answer->created) ?></small>
+
+          </p>
+        </div> 
+      </div>
+    <?php endforeach; ?>
   <?php endif; ?>
 </section>
