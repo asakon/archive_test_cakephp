@@ -25,7 +25,16 @@ class QuestionsController extends AppController
     $question = $this->Questions->newEntity();
 
     if ($this->request->is('post')) {
-      // フォームの処理を書く 
+      $question = $this->Questions->patchEntity($question, $this->request->getData());
+
+      $question->user_id = 1;  // @TODO ユーザー管理機能実装時に修正する
+
+      if ($this->Questions->save($question)) {
+        $this->Flash->success('質問を投稿しました');
+
+        return $this->redirect(['action' => 'index']);
+      }
+      $this->Flash->error('質問の投稿に失敗しました');
     }
 
     $this->set(compact('question'));
