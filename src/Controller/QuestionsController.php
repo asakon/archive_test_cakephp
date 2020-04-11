@@ -40,5 +40,22 @@ class QuestionsController extends AppController
 
     $this->set(compact('question'));
   }
+
+  /**
+  *  質問詳細画面
+  */
+  public function view(int $id)
+  {
+    $question = $this->Questions->get($id);
+
+    $answers = $this
+      ->Answers
+      ->find()
+      ->where(['Answers.question_id' => $id])
+      ->orderAsc('Answers.id')
+      ->all();
+    
+    $this->set(compact('question', 'answers'));
+  }
   
 }
