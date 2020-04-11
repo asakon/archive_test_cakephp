@@ -13,3 +13,17 @@
     </div>
   </div>
 </section>
+
+<section class="answer mb-4">
+  <?php if ($answers->isEmpty()): ?>
+    <div class="card w-75 mb-2 ml-auto">
+      <div class="card-body">
+        <h5 class="card-title text-center">回答はまだありません。</h5>
+      </div>
+    </div>
+  <?php else: ?>
+    <div class="w-75 ml-auto">
+      <h5><i class="fas fa-reply"></i> 回答</h5> 
+    </div>
+  <?php endif; ?>
+</section>
