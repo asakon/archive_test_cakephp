@@ -7,6 +7,7 @@ class QuestionsController extends AppController
   public function initialize()
   {
     parent::initialize();
+    $this->loadModel('Answers');
   }
 
   public function index()
