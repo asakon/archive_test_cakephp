@@ -4,7 +4,7 @@ namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
 
-class Answers extends Entiry
+class Answers extends Entity
 {
   protected $_accessible = [
     'question_id' => true,
